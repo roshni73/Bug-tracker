@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css';
-import BugList from './Views/bugList'
+import BugList from './Views/bugList/index.jsx';
 
 
 function App() {

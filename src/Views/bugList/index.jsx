@@ -1,14 +1,60 @@
 import react from 'react'
-import Navbar from '../navBar';
+import './BugList.css'
+import Navbar from '../navBar/index.jsx';
+import SideBar from '../sideBar/index.jsx';
 
 
 function bugList() {
-  return (
-    <div className="all">
-      <h1>Bug List</h1>
-        <Navbar/>
-
+    return (
+    <>
+    <div className="navbar">
+          <Navbar/>
     </div>
-  )
+    <div className="main-container">
+        <div className="sidebar"><SideBar/></div>
+        <div className="bug-list">
+        <div className="addForm">
+                <button>Add Bug</button>
+            </div>
+            <h2>Bug List</h2>
+            
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Severity</th>
+                    <th>Assigned To</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>UI Bug</td>
+                    <td>High</td>
+                    <td>hari</td>
+                    <td>Open</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>API Bug</td>
+                    <td>Low</td>
+                    <td>shyam</td>
+                    <td>Open</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>UI Bug</td>
+                    <td>High</td>
+                    <td>ram</td>
+                    <td>Open</td>
+                </tr>
+
+            </table>
+        </div> 
+       
+    </div>
+    </>
+
+    )
 }
+
 export default bugList;

@@ -2,7 +2,7 @@ import react from 'react'
 import './BugList.css'
 import Navbar from '../navBar/index.jsx';
 import SideBar from '../sideBar/index.jsx';
-
+import Button from '../button/index.jsx';
 
 function bugList() {
     return (
@@ -13,9 +13,8 @@ function bugList() {
     <div className="main-container">
         <div className="sidebar"><SideBar/></div>
         <div className="bug-list">
-        <div className="addForm">
-                <button>Add Bug</button>
-            </div>
+        <div classNaame="button"><Button/></div>
+        
             <h2>Bug List</h2>
             
             <table>

@@ -1,11 +1,7 @@
-import { useState } from 'react'
 import './App.css';
-import BugList from './Views/bugList/index.jsx';
-
-
+import BugList from './Views/BugList/BugList.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
    <>

@@ -43,3 +43,21 @@
     text-align: left;
     color: black;
 }
+
+.bug-list button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #427D9D;;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .bug-list button:hover {
+    opacity: 0.8;
+  }
+
+  .centerText {
+    text-align: center;
+    align-items: center;
+  }

@@ -1,9 +1,9 @@
 import React from "react";
-import './index.css';
-import InputForm from '../InputForm/index.jsx';
+import './Modal.css';
+import InputForm from '../InputForm/InputForm.jsx';
 
 
-function Modal({ isOpen, closeModal }) {
+function Modal({ isOpen, closeModal, setData }) {
     if (!isOpen) {
       return null;
     }
@@ -12,7 +12,7 @@ function Modal({ isOpen, closeModal }) {
         <div className="modal-overlay">
           <div className="modal-content">
             <button onClick={closeModal}>X</button>
-            <InputForm />
+            <InputForm  setData={setData}/>
           </div>
          
         </div>

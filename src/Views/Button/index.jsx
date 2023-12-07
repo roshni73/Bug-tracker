@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReportingForm from '../ReportingForm';
+import Modal from '../Modal/index.jsx';
 import './button.css';
 
 import { useState } from 'react';
@@ -21,18 +21,7 @@ import { useState } from 'react';
             <div className="btn">
             <button  onClick={togglePopup}>Add Bug </button>
             </div>
-
-            {isOpen && (
-                <form onSubmit={handleSubmit} className="popup">
-                    <button onClick={togglePopup}>X</button>
-                    <input type="text" placeholder="Title"  className="popup-input" />
-                    <input type="text" placeholder="Description"  className="popup-input" />
-                    <input type="text" placeholder="Status"  className="popup-input" />
-                    <input type="text" placeholder="Severity"  className="popup-input" />
-                    <button type="submit">Submit</button>
-                   
-                </form>
-            )}
+            <Modal isOpen={isOpen} closeModal={togglePopup} />
         </div>
     );
 }

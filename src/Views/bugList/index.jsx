@@ -1,59 +1,51 @@
 import react from 'react'
 import './BugList.css'
 import Navbar from '../navBar/index.jsx';
-import SideBar from '../sideBar/index.jsx';
-import Button from '../button/index.jsx';
+import InputForm from '../InputForm/index.jsx';
+import Button from '../Button/index.jsx';
+import React, { useState, useEffect } from 'react';
 
-function bugList() {
+function BugList() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const localStorageData = localStorage.getItem('bugs');
+        if (localStorageData) {
+            setData(JSON.parse(localStorageData));
+        }
+    }, []);
+
     return (
     <>
     <div className="navbar">
-          <Navbar/>
-    </div>
-    <div className="main-container">
-        <div className="sidebar"><SideBar/></div>
+        <Navbar/>
+        </div>
+        <div className="main-container">
         <div className="bug-list">
-        <div classNaame="button"><Button/></div>
-        
-            <h2>Bug List</h2>
-            
-            <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Description</th>
-                    <th>Severity</th>
-                    <th>Assigned To</th>
-                    <th>Status</th>
+        <div className="button"><Button/></div>
+        <h2>Bug List</h2>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Severity</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+            </tr>
+            {data.map((item, index) => (
+                <tr key={index}>
+                    <td>{item.id}</td>
+                    <td>{item.description}</td>
+                    <td>{item.severity}</td>
+                    <td>{item.assignedTo}</td>
+                    <td>{item.status}</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>UI Bug</td>
-                    <td>High</td>
-                    <td>hari</td>
-                    <td>Open</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>API Bug</td>
-                    <td>Low</td>
-                    <td>shyam</td>
-                    <td>Open</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>UI Bug</td>
-                    <td>High</td>
-                    <td>ram</td>
-                    <td>Open</td>
-                </tr>
-
-            </table>
+            ))}
+        </table>
         </div> 
-       
     </div>
     </>
-
-    )
+    );
 }
 
-export default bugList;
+export default BugList;

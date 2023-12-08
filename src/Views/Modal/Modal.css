@@ -17,3 +17,17 @@
     width: 80%;
     max-width: 500px;
   }
+  .modal-content button{
+    display:flex;
+    background-color:#164863;
+    color:white;
+    border-radius:5px;
+    border:none;
+  }
+  .btn{
+    display:flex;
+    justify-content:end;
+    color:white;
+    border-radius:5px;
+    border:none;
+  }

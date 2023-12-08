@@ -10,7 +10,16 @@
     width: 100%;
     padding-left:50px;
     padding-right:50px;
+    
+    
 
+}
+.bug-list button{
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .bug-list h2 {
@@ -44,15 +53,7 @@
     color: black;
 }
 
-.bug-list button {
-    margin-right: 5px;
-    padding: 5px 10px;
-    border: none;
-    background-color: #427D9D;;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+
   .bug-list button:hover {
     opacity: 0.8;
   }
@@ -61,3 +62,20 @@
     text-align: center;
     align-items: center;
   }
+  .add-button{
+    display: flex;
+    justify-content:end;
+    
+  }
+    .add-button button{
+        background-color:#164863;
+        color:white;
+        border-radius:5px;
+        border:none;
+        padding:15px;
+        cursor:pointer;
+    }
+    .add-button button:hover{
+        background-color:#164863;
+        opacity:0.8;
+    }

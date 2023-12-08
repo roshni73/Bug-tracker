@@ -1,17 +1,24 @@
 import './InputForm.css';
 import React, { useState } from "react";
 
-function InputForm({setData}) {
+function InputForm(props) {
+  const {
+    onAddSuccess,
+  } = props
   const initialFormState = {
     title: '',
     description: '',
     steps: '',
     actual: '',
+    status: '',
+
+         
     errors: {
-      title: '',
-      description: '',
-      steps: '',
-      actual: ''
+    title: '',
+    description: '',
+    steps: '',
+    actual: '',
+    status: ''
     }
   };
 
@@ -19,38 +26,40 @@ function InputForm({setData}) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+  
     const errors = {
       title: formState.title ? '' : 'Title is required',
       description: formState.description ? '' : 'Description is required',
       steps: formState.steps ? '' : 'Steps are required',
-      actual: formState.actual ? '' : 'Actual result is required'
+      actual: formState.actual ? '' : 'Actual result is required',
+      status: formState.status ? '' : 'Status is required'
     };
 
     if (Object.values(errors).some(error => error)) {
       setFormState({ ...formState, errors });
       return;
     }
-
-    const localStorageData = localStorage.getItem('formData');
-    const storedFormData = JSON.parse(localStorageData || "[]");
-    storedFormData.push(formState);
-    localStorage.setItem('formData', JSON.stringify(storedFormData));
-    setData(JSON.parse(localStorageData));
-    setFormState(initialFormState);
-
+    onAddSuccess(formState);
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label>
           Bug Title:
-          <input type="text" value={formState.title} onChange={e => setFormState({ ...formState, title: e.target.value })} />
+          <input
+            type="text"
+            value={formState.title}
+            onChange={e => setFormState({ ...formState, title: e.target.value })} 
+            />
           {formState.errors.title && <p>{formState.errors.title}</p>}
         </label>
         <label>
-          Description:
-          <textarea value={formState.description} onChange={e => setFormState({ ...formState, description: e.target.value })} />
+          Description
+          <textarea
+            value={formState.description}
+            onChange={e => setFormState({ ...formState, description: e.target.value })}
+          />
           {formState.errors.description && <p>{formState.errors.description}</p>}
         </label>
         <label>
@@ -62,6 +71,11 @@ function InputForm({setData}) {
           Actual Result:
           <textarea value={formState.actual} onChange={e => setFormState({ ...formState, actual: e.target.value })} />
           {formState.errors.actual && <p>{formState.errors.actual}</p>}
+        </label>
+        <label>
+          status:
+          <textarea value={formState.status} onChange={e => setFormState({ ...formState, status: e.target.value })} />
+          {formState.errors.status && <p>{formState.errors.status}</p>}
         </label>
         <input type="submit" value="Submit" />
       </form>

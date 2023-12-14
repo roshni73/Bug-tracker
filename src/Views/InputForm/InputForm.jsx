@@ -2,36 +2,44 @@ import './InputForm.css';
 import React, { useState } from "react";
 
 function InputForm(props) {
+
   const {
     onAddSuccess,
+    currentItem
   } = props
-  const initialFormState = {
-    title: '',
-    description: '',
-    steps: '',
-    actual: '',
-    status: '',
 
-         
-    errors: {
+  const initialFormState = currentItem ? {
+    project: currentItem.project,
+    title: currentItem.title,
+    description: currentItem.description,
+    priority: currentItem.priority,
+    status: currentItem.status
+  } : {
+    project: '',
     title: '',
     description: '',
-    steps: '',
-    actual: '',
+    priority: '',
     status: ''
-    }
+  };
+
+  initialFormState.errors = {
+    project: '',
+    title: '',
+    description: '',
+    priority: '',
+    status: ''
   };
 
   const [formState, setFormState] = useState(initialFormState);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     const errors = {
+      project: formState.project ? '' : 'Project is required',
       title: formState.title ? '' : 'Title is required',
       description: formState.description ? '' : 'Description is required',
-      steps: formState.steps ? '' : 'Steps are required',
-      actual: formState.actual ? '' : 'Actual result is required',
+      priority: formState.priority ? '' : 'Priority is required',
       status: formState.status ? '' : 'Status is required'
     };
 
@@ -46,12 +54,21 @@ function InputForm(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <label>
+          Project:
+          <input
+            type="text"
+            value={formState.project}
+            onChange={e => setFormState({ ...formState, project: e.target.value })}
+          />
+          {formState.errors.project && <p>{formState.errors.project}</p>}
+        </label>
+        <label>
           Bug Title:
           <input
             type="text"
             value={formState.title}
-            onChange={e => setFormState({ ...formState, title: e.target.value })} 
-            />
+            onChange={e => setFormState({ ...formState, title: e.target.value })}
+          />
           {formState.errors.title && <p>{formState.errors.title}</p>}
         </label>
         <label>
@@ -63,18 +80,21 @@ function InputForm(props) {
           {formState.errors.description && <p>{formState.errors.description}</p>}
         </label>
         <label>
-          Steps to Reproduce:
-          <textarea value={formState.steps} onChange={e => setFormState({ ...formState, steps: e.target.value })} />
-          {formState.errors.steps && <p>{formState.errors.steps}</p>}
-        </label>
-        <label>
-          Actual Result:
-          <textarea value={formState.actual} onChange={e => setFormState({ ...formState, actual: e.target.value })} />
-          {formState.errors.actual && <p>{formState.errors.actual}</p>}
+          Priority
+          <select value={formState.priority} onChange={e => setFormState({ ...formState, priority: e.target.value })}>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          {formState.errors.priority && <p>{formState.errors.priority}</p>}
         </label>
         <label>
           status:
-          <textarea value={formState.status} onChange={e => setFormState({ ...formState, status: e.target.value })} />
+          <select value={formState.status} onChange={e => setFormState({ ...formState, status: e.target.value })}>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Assigned">Assigned</option>
+            <option value="Completed">Completed</option>
+          </select>
           {formState.errors.status && <p>{formState.errors.status}</p>}
         </label>
         <input type="submit" value="Submit" />

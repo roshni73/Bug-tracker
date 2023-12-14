@@ -1,0 +1,20 @@
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .ongoing-bugs, .completed-bugs, .todo-bugs {
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .ongoing-bugs h2, 
+  .completed-bugs h2,
+   .todo-bugs h2 {
+    color: #333;
+    margin-bottom: 20px;
+   }

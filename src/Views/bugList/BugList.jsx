@@ -1,19 +1,19 @@
-import './BugList.css'
-import Navbar from '../NavBar/NavBar.jsx';
-import Button from '../Button/Button.jsx';
+import React, { useState, useEffect } from 'react';
 import Modal from '../Modal/Modal.jsx';
 import BugItem from '../BugItem/index.jsx';
-import React, { useState, useEffect } from 'react';
+import SearchBar from '../SearchBar/SearchBar.jsx';
+
+import './BugList.css'
 
 function BugList() {
     const [data, setData] = useState(() => {
         const localStorageData = localStorage.getItem('formData');
         return localStorageData ? JSON.parse(localStorageData) : [];
     });
-    
+
     const [isOpen, setIsOpen] = useState(false);
     const [editIndex, setEditIndex] = useState(null);
-    const [currentItem, setCurrentItem] = useState(null); 
+    const [currentItem, setCurrentItem] = useState(null);
 
     useEffect(() => {
         localStorage.setItem('formData', JSON.stringify(data));
@@ -24,9 +24,9 @@ function BugList() {
         if (action !== 'edit') {
             setEditIndex(null);
             setCurrentItem(null);
-          }
+        }
     };
-    
+
     const onAddSuccess = (arg) => {
         if (editIndex !== null) {
             let newData = [...data];
@@ -53,45 +53,41 @@ function BugList() {
     };
 
     return (
-    <>
-        <div className="container"> 
-            <div className="navbar">
-                <Navbar />
+        <>
+            <section className='section-buglist'>
+            
+            <SearchBar />
+            <div className="add-bug-btn" onClick={toggleModal}>
+                <i className="fas fa-plus"></i> Add Bug
             </div>
-            <div className="main-container">
-                <div className="bug-list">
-                   <div  className='add-button'>
-                    <Button onClick={toggleModal} title="Report Bug"/>
-                    </div>
-                    <Modal isOpen={isOpen} closeModal={toggleModal} submitData={onAddSuccess} currentItem={currentItem}/>
-
-
-                    <h2>Bug List</h2>
-                    {data.length > 0 ? (
-                          <table>
-                          <thead>
-                              <tr>
-                                  <th>Id</th>
-                                  <th>Project</th>
-                                  <th>Title</th>
-                                  <th>Description</th>
-                                  <th>Priority</th>
-                                  <th>Status</th>
-                                  <th>Action</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              {data.map((item, index) => (
-                                  <BugItem item={item} index={index} editItem={editItem} deleteItem={deleteItem} submitData={onAddSuccess} />    
-                              ))}
-                          </tbody>
-                      </table>
-                    ) : (<p>No Data</p>)
-                    }                       
-                </div>
-            </div>
-        </div>
-    </>
+            <Modal isOpen={isOpen} closeModal={toggleModal} submitData={onAddSuccess} currentItem={currentItem} />
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Project</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {data.length === 0 ? (
+                    <tr>
+                        <td colSpan="7" className="center-text">No record found.</td>
+                    </tr>
+                ) : (
+                    data.map((item, index) => (
+                        <BugItem item={item} index={index} editItem={editItem} deleteItem={deleteItem} submitData={onAddSuccess} />
+                    ))
+                )}
+                </tbody>
+            </table>
+            </section>
+        </>
     );
 }
 

@@ -52,7 +52,7 @@ function InputForm(props) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='modal'>
         <label>
           Project:
           <input
@@ -82,6 +82,7 @@ function InputForm(props) {
         <label>
           Priority
           <select value={formState.priority} onChange={e => setFormState({ ...formState, priority: e.target.value })}>
+            <option value="">-----</option>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
@@ -91,6 +92,7 @@ function InputForm(props) {
         <label>
           status:
           <select value={formState.status} onChange={e => setFormState({ ...formState, status: e.target.value })}>
+            <option value="">-----</option>
             <option value="Ongoing">Ongoing</option>
             <option value="Assigned">Assigned</option>
             <option value="Completed">Completed</option>

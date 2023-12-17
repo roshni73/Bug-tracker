@@ -12,8 +12,8 @@ function BugItem({ item, index, editItem, deleteItem }) {
             <td>{item.priority}</td>
             <td>{item.status}</td>
             <td>
-                <Button onClick={() => editItem(index)} title="Edit" />
-                <Button onClick={() => deleteItem(index)} title="Delete" />
+                <a href="#" onClick={() => editItem(index)} class="edit"><i class="fas fa-edit"></i></a>
+                <a href="#" onClick={() => deleteItem(index)} class="delete"><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
     );

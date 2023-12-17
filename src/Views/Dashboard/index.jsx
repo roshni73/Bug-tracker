@@ -1,25 +1,36 @@
+import React from 'react'
+import './index.css'
 
-import React from 'react';
-// import './Dashboard/index.css';
-
-import '../Dashboard/index.css';
 function Dashboard() {
+    return (
+        <>
+            <section className="dashboard">
+                <div className="badge-container">
+                    <div className="badge">
+                        <i className="fas fa-bug"></i>
+                        <h2>Active Bugs</h2>
+                        <p>24</p>
+                    </div>
+                </div>
 
+                <div className="badge-container">
+                    <div className="badge">
+                        <i className="fas fa-check-circle"></i>
+                        <h2>Completed Bugs</h2>
+                        <p>76</p>
+                    </div>
+                </div>
 
-  
-  return (
-    <div className="dashboard">
-      <div className="ongoing-bugs">
-        <h2>Ongoing Bugs</h2>
-      </div>
-      <div className="completed-bugs">
-        <h2>Completed Bugs</h2>
-      </div>
-      <div className="todo-bugs">
-        <h2>Todo Bugs</h2>
-      </div>
-    </div>
-  );
+                <div className="badge-container">
+                    <div className="badge">
+                        <i className="fas fa-spinner"></i>
+                        <h2>Running Bugs</h2>
+                        <p>8</p>
+                    </div>
+                </div>
+            </section>
+        </>
+    )
 }
 
-export default Dashboard;
+export default Dashboard

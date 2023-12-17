@@ -7,13 +7,17 @@ import './NavBar.css';
 function Navbar() {
   return (
     <nav> 
-    <div className="heading"><h1><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/window-bug.png" alt="window-bug"/>BugSentry</h1></div>
+    <div className="heading"><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/window-bug.png" alt="window-bug"/>BugSentry</div>
       <div className="navbar-content">
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/buglist">Bug List</Link></li>
+        <li><Link to="/buglist"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/home.png" alt="home"/>Home</Link></li>
+        <li><Link to="/"><img width="24" height="24" src="https://img.icons8.com/material-rounded/24/control-panel.png" alt="control-panel"/>Dashboard</Link></li>
       </ul>
+    </div>
+      <div className="login-logo">
+       <li><Link to="/s"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/guest-male.png" alt="guest-male"/>Roshani Poudel</Link></li>
       </div>
+      
     </nav>
   );
 }

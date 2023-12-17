@@ -8,7 +8,6 @@ function Modal(props) {
       closeModal,
       submitData,
       currentItem
-
     } = props;
     
     if (!isOpen) {

@@ -1,7 +1,8 @@
 table {
-    width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 th,
@@ -9,11 +10,13 @@ td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    
 }
 
 th {
     background-color: #2c3e50;
     color: #ecf0f1;
+    margin-right: 40px;
 }
 
 td {
@@ -58,6 +61,7 @@ td.priority-high {
 .button-container {
     display: flex;
     justify-content: flex-end;
+    margin-right: 40px;
   }
 
 .add-bug-btn {

@@ -11,7 +11,7 @@ function Navbar() {
        <div className="navbar-content">
         <ul>
         <li><Link to="/"><img width="20" height="20" src="https://img.icons8.com/material-rounded/24/control-panel.png" alt="control-panel"/>Dashboard</Link></li>
-        <li><Link to="/buglist"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/home.png" alt="home"/>Home</Link></li>
+        <li><Link to="/buglist"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/ingredients-list.png" alt="ingredients-list"/>Bugs</Link></li>
         
       </ul>
     </div>

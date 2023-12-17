@@ -1,5 +1,5 @@
 import './InputForm.css';
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 function InputForm({ onAddSuccess, currentItem }) {
   const initialFormState = currentItem ? { ...currentItem } : {
@@ -19,6 +19,15 @@ function InputForm({ onAddSuccess, currentItem }) {
   };
 
   const [formState, setFormState] = useState(initialFormState);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (currentItem) {
+      setIsSubmitted(true);
+    }
+  }, [currentItem]);
+
+
   const generateErrors = (formState) => ({
     title: formState.title ? '' : 'Title is required',
     project: formState.project ? '' : 'Project is required',
@@ -26,6 +35,7 @@ function InputForm({ onAddSuccess, currentItem }) {
     priority: formState.priority ? '' : 'Priority is required',
     status: formState.status ? '' : 'Status is required'
   });
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState(prevState => {
@@ -37,8 +47,10 @@ function InputForm({ onAddSuccess, currentItem }) {
       return newState;
     });
   };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSubmitted(true);
   
     const errors = generateErrors(formState);
   
@@ -86,7 +98,7 @@ function InputForm({ onAddSuccess, currentItem }) {
         ) : (
           <input type="text" name={key} value={formState[key]} onChange={handleInputChange} />
         )}
-        {formState.errors[key] && <p>{formState.errors[key]}</p>}
+         {isSubmitted && formState.errors[key] && <p>{formState.errors[key]}</p>}
       </label>
     );
   };

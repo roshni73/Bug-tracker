@@ -19,11 +19,15 @@ const Dashboard = () => {
         return counts;
     }, { Open: 0, 'In progress': 0, Closed: 0 });
 
+    const bugCountsValues = Object.values(bugCounts);
+    const isAllZero = bugCountsValues.every(val => val === 0);
+
     const data = {
         labels: ["Open", "InProgress", "Complete"],
         datasets: [{
             label: "No of Bugs",
-            data: Object.values(bugCounts),
+            data: isAllZero ? [1, 1, 1] : bugCountsValues,
+            backgroundColor: isAllZero ? ['transparent', 'transparent', 'transparent'] : undefined,
         }],
     };
 

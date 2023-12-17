@@ -17,7 +17,7 @@ const Dashboard = () => {
     const bugCounts = bugs.reduce((counts, bug) => {
         counts[bug.status]++;
         return counts;
-    }, { open: 0, 'in progress': 0, closed: 0 });
+    }, { Open: 0, 'In progress': 0, Closed: 0 });
 
     const data = {
         labels: ["Open", "InProgress", "Complete"],
@@ -29,9 +29,9 @@ const Dashboard = () => {
 
     return (
         <section className="dashboard">
-                <Badge icon="fas fa-bug" text="Active Bugs" count={bugCounts.open} />
-                <Badge icon="fas fa-spinner" text="Running Bugs" count={bugCounts['in progress']} />
-                <Badge icon="fas fa-check-circle" text="Completed Bugs" count={bugCounts.closed} />
+                <Badge icon="fas fa-bug" text="Active Bugs" count={bugCounts.Open} />
+                <Badge icon="fas fa-spinner" text="Running Bugs" count={bugCounts['In progress']} />
+                <Badge icon="fas fa-check-circle" text="Completed Bugs" count={bugCounts.Closed} />
             
             <div className="pie-chart">
                 <Pie data={data} options={{ responsive: true, maintainAspectRatio: false }} />

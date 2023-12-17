@@ -42,9 +42,13 @@ function InputForm({ onAddSuccess, currentItem }) {
 
     if (!formState.id) {
       formState.id = Date.now();
+      
     }
 
-    onAddSuccess(formState);
+    const formStateWithoutErrors = { ...formState };
+    delete formStateWithoutErrors.errors;
+
+    onAddSuccess(formStateWithoutErrors);
   };
 
   const renderInputField = (key) => {
@@ -59,8 +63,8 @@ function InputForm({ onAddSuccess, currentItem }) {
     const isSelectField = key === 'priority' || key === 'status';
     const isTextArea = key === 'description';
     const options = {
-      priority: ['low', 'medium', 'high'],
-      status: ['open', 'in progress', 'closed']
+      priority: ['Low', 'Medium', 'High'],
+      status: ['Open', 'In progress', 'Closed']
     };
 
     return (

@@ -55,15 +55,13 @@ nav {
 
 .login-logo li {
   list-style-type: none;
-}
-
-.login-logo li a {
   color:#000;
   font-weight: bold;
   text-decoration: none;
   display: flex;
   align-items: center;
 }
+
 
 .login-logo li a img {
   margin-right: 5px;

@@ -8,25 +8,14 @@ section {
   justify-content: space-around;
 }
 
-.badge-container {
+.pie-chart {
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
+  justify-content: center;
   align-items: center;
-}
+  margin-top: 40px;
 
-.badge {
-  background-color: #3498db;
-  color: #ecf0f1;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.badge i {
-  margin-bottom: 5px;
 }
 
 @media (min-width: 768px) {
@@ -34,9 +23,5 @@ section {
       display: flex;
       justify-content: space-around;
       flex-direction: row;
-  }
-
-  .badge-container {
-      flex: 1;
   }
 }

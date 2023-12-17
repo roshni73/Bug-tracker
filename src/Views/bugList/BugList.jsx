@@ -65,7 +65,7 @@ function BugList() {
             <section className='section-buglist'>
                 <SearchBar onFilterChange={handleFilterChange} searchText={searchText} />
                 <div className='button-container'>
-                     <Button className="add-bug-btn" onClick={toggleModal} title="Add Bug">
+                    <Button className="add-bug-btn" onClick={toggleModal} title="Add Bug">
                     </Button>
                 </div>
                 <Modal isOpen={isOpen} closeModal={toggleModal} submitData={onAddSuccess} currentItem={currentItem} />

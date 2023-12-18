@@ -5,7 +5,7 @@
   }
   
   .badge {
-    box-shadow: black 0px 0px 10px;
+    box-shadow: 0 0 10px rgba(65, 63, 63, 0.4);
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -14,10 +14,27 @@
     flex-direction: column;
     width:80%;
   }
+  .badge-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .badge h1 {
+    font-size: 3em;
+    margin: 10px 0;
+  }
+
+  .badge p {
+    margin: 8px 0;
+    font-weight: bold;
+  }
   
   .badge i {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
+  
 
 
   @media (min-width: 768px) {  

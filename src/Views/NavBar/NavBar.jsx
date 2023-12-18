@@ -10,7 +10,7 @@ function Navbar() {
       <div className="heading"><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/window-bug.png" alt="window-bug"/>BugSentry</div>
        <div className="navbar-content">
         <ul>
-        <li><Link to="/"><img width="20" height="20" src="https://img.icons8.com/material-rounded/24/control-panel.png" alt="control-panel"/>Dashboard</Link></li>
+        <li><Link to="/"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/home.png" alt="home"/>Dashboard</Link></li>
         <li><Link to="/buglist"><img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/ingredients-list.png" alt="ingredients-list"/>Bugs</Link></li>
         
       </ul>

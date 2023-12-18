@@ -6,8 +6,8 @@ function Badge({icon, text , count}) {
         <div className="badge-container">
             <div className="badge">
                 <i className={icon}></i>
-                <h2>{text}</h2>
-                <p>{count}</p>
+                <p>{text}</p>
+                <h1>{count}</h1>
             </div>
         </div>
     )

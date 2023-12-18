@@ -41,7 +41,10 @@ function BugList() {
         const index = data.findIndex(item => item.id === id);
         if (index !== -1) {
             if (action === 'delete') {
-                setData([...data.slice(0, index), ...data.slice(index + 1)]);
+                const confirmDelete = window.confirm('Are you sure you want to delete this item?');
+                if (confirmDelete) {
+                    setData([...data.slice(0, index), ...data.slice(index + 1)]);
+                }
             } else if (action === 'edit') {
                 setEditIndex(index);
                 setCurrentItem(data[index]);
@@ -69,12 +72,14 @@ function BugList() {
     return (
         <>
             <section className='section-buglist'>
-                <SearchBar onFilterChange={handleFilterChange} searchText={searchText} />
-                <div className='button-container'>
-                    <Button className="add-bug-btn" onClick={toggleModal} title="Add Bug">
-                    </Button>
+                <div className='section-title'>
+                    <SearchBar onFilterChange={handleFilterChange} searchText={searchText} />
+                    <div className='button-container'>
+                        <Button className="add-bug-btn" onClick={toggleModal} title="Add Bug">
+                        </Button>
+                    </div>
+                    <Modal isOpen={isOpen} closeModal={toggleModal} submitData={onAddSuccess} currentItem={currentItem} />
                 </div>
-                <Modal isOpen={isOpen} closeModal={toggleModal} submitData={onAddSuccess} currentItem={currentItem} />
                 <table>
                     <thead>
                         <tr>

@@ -19,15 +19,26 @@
   }
   .modal-content button{
     display:flex;
-    background-color:#164863;
+    background-color:#2c3e50;
     color:white;
     border-radius:5px;
     border:none;
+  }
+  .reportingForm-heading{
+    margin-left: 10px;
+    display:flex;
+    text-align: center;
+  }
+  .modal-heading{
+    display:flex;
+    flex-direction:row;
+    background-color:#2c3e50;
+    color:white;
+    margin-bottom: 10px;
   }
   .btn{
-    display:flex;
-    justify-content:end;
-    color:white;
-    border-radius:5px;
-    border:none;
+    margin-top:20px;
+    margin-left: 300px;
+    background-color: #2c3e50;
   }
+  

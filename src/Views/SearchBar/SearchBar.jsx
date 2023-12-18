@@ -27,10 +27,11 @@ function SearchBar({ onFilterChange, searchText }) {
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
-                </select>
+                </select>  
             </div>
-
-            <input type="text" id="searchText" className="search-input" placeholder="Search..." value={searchText} onChange={handleSearchChange} />
+            <div className="search-box">
+                <input type="text" id="searchText" className="search-input" placeholder="Search..." value={searchText} onChange={handleSearchChange} />
+            </div>
         </div>
     );
 }

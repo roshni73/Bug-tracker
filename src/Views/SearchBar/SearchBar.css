@@ -7,11 +7,13 @@
     border-radius: 5px;
     margin-left: 40px;
     margin-right: 40px;
+    margin-top: 10px;
   }
   
   .search-form div {
     display: flex;
     align-items: center;
+    margin-right: 10px;
   }
   
   .search-form label {
@@ -19,11 +21,21 @@
   }
   
   .search-dropdown {
+    box-shadow: 0px 0px 3px;
     margin-right: 20px;
     padding: 5px;
+    border-radius: 5px;
   }
+  .search-box {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
   
   .search-input {
+    width:650px;
+    box-shadow: 0px 0px 3px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
